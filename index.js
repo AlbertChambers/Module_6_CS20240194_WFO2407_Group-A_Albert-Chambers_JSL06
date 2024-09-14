@@ -1,3 +1,4 @@
+"use strict";
 // Sample menu data (Consider fetching this data from a server in a real-world scenario)
 const menu = {
     Starters: ["Garlic Bread", "Bruschetta"],
@@ -5,16 +6,22 @@ const menu = {
     Desserts: ["Tiramisu", "Cheesecake"]
 };
 
+let total = 0;
+let order =[];
+
 // Function to display menu items by category
 function displayMenuItems(menu) {
     // Get the menu container element from the HTML
-
+    const menuContainer = document.getElementById("menu");
     // Loop through each category and its items in the menu object
-
+    for (const category in menu) {
         // Create an element to represent the category
-
+        var categoryElement = document.createElement("div");
+        categoryElement.classList.add(category);
         // Set the text content of the category element to the category name
-
+        const categoryTitle = document.createElement("h3")
+        categoryTitle.textContent = category;
+        categoryElement.appendChild(categoryElement);
         // Append the category element to the menu container
 
         // Create an element to represent a list of items
@@ -30,8 +37,9 @@ function displayMenuItems(menu) {
             // Attach a click event listener to the list item to add it to the order
 
             // Append the list item to the list of items
-
             
+        });    
+    }
 }
 
 // Callback function for adding an item to the order
